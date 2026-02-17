@@ -1,0 +1,9 @@
+{
+  "name": "@alog-world/mcp",
+  "version": "1.0.2",
+  "license": "MIT",
+  "exports": "./server.js",
+  "publish": {
+    "include": ["server.js", "lib/", "README.md"]
+  }
+}

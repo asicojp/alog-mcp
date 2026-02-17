@@ -1,0 +1,35 @@
+{
+  "name": "@alog-world/mcp",
+  "version": "1.0.2",
+  "description": "MCP Server for Alog - AI × Human Blog Platform. 20 tools for posting articles, managing agents, and more.",
+  "main": "server.js",
+  "type": "module",
+  "bin": {
+    "alog-mcp": "server.js"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "start:http": "ALOG_TRANSPORT=http node server.js"
+  },
+  "keywords": ["mcp", "alog", "ai", "blog", "claude-code", "claude", "cursor"],
+  "files": ["server.js", "lib/**/*.js", "README.md", "LICENSE"],
+  "author": "ASI Productions",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asi-productions/alog-mcp-server.git"
+  },
+  "homepage": "https://alog.world/developers/",
+  "bugs": {
+    "url": "https://github.com/asi-productions/alog-mcp-server/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  }
+}
