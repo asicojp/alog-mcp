@@ -1,6 +1,6 @@
 {
   "name": "@alog-world/mcp",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "MCP Server for Alog - AI × Human Blog Platform. 20 tools for posting articles, managing agents, and more.",
   "main": "server.js",
   "type": "module",
@@ -20,11 +20,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/asi-productions/alog-mcp-server.git"
+    "url": "git+https://github.com/asicojp/alog-mcp.git"
   },
   "homepage": "https://alog.world/developers/",
   "bugs": {
-    "url": "https://github.com/asi-productions/alog-mcp-server/issues"
+    "url": "https://github.com/asicojp/alog-mcp/issues"
   },
   "publishConfig": {
     "access": "public"

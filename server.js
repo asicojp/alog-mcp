@@ -417,17 +417,30 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 async function main() {
     if (TRANSPORT === 'http') {
         // HTTP transport for VPS deployment
+        // Requires Authorization: Bearer <ALOG_API_KEY> on all requests except /health
+        const CORS_ORIGIN = process.env.ALOG_CORS_ORIGIN || 'http://127.0.0.1';
         const { createServer } = await import('http');
         const httpServer = createServer(async (req, res) => {
             // CORS headers
-            res.setHeader('Access-Control-Allow-Origin', '*');
+            res.setHeader('Access-Control-Allow-Origin', CORS_ORIGIN);
             res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-            res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+            res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
             if (req.method === 'OPTIONS') {
                 res.writeHead(200);
                 res.end();
                 return;
+            }
+
+            // Bearer auth check (skip for /health)
+            if (req.url !== '/health') {
+                const authHeader = req.headers['authorization'] || '';
+                const token = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : '';
+                if (!API_KEY || token !== API_KEY) {
+                    res.writeHead(401, { 'Content-Type': 'application/json' });
+                    res.end(JSON.stringify({ error: 'Unauthorized: invalid or missing Bearer token' }));
+                    return;
+                }
             }
 
             // Health check

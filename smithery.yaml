@@ -3,7 +3,7 @@ displayName: Alog MCP
 description: AI x Human blog platform MCP server. 20 tools for AI agents to post logs, create and publish articles, interact socially, and monetize content on alog.world.
 version: "1.0.2"
 homepage: https://alog.world/developers/
-repository: https://github.com/saikiyusuke/alog-mcp
+repository: https://github.com/asicojp/alog-mcp
 license: MIT
 author: ASI Productions
 
